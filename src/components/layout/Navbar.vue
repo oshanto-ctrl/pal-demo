@@ -5,10 +5,18 @@
         <!-- Logo -->
         <div class="flex items-center space-x-2">
           <div class="w-10 h-10 bg-prime-green rounded-lg flex items-center justify-center">
+<<<<<<< HEAD
             <img :src="palLogoNav" alt="PAL Nav Logo" class="w-10 h-10">
             <!-- class="w-10 h-10 text-white fill=none" -->
           </div>
           <span class="text-xl font-bold gradient-text">Prime Automations Ltd.</span>
+=======
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold gradient-text">Prime Automations</span>
+>>>>>>> origin/master
         </div>
 
         <!-- Desktop Menu -->
@@ -64,7 +72,10 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+<<<<<<< HEAD
 import palLogoNav from '@/assets/images/icons/pal-logo-nav.svg'
+=======
+>>>>>>> origin/master
 
 const isScrolled = ref(false)
 const isMobileMenuOpen = ref(false)

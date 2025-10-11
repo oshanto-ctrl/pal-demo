@@ -1,6 +1,7 @@
 <template>
   <div class="min-h-screen">
     <!-- Hero Section with Neural Network Background -->
+<<<<<<< HEAD
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       <!-- Neural Network Canvas Background -->
       <canvas ref="neuralCanvas" class="absolute inset-0 w-full h-full"></canvas>
@@ -49,6 +50,23 @@
             Connect Expert
           </router-link>
           <router-link to="/products" class="btn-secondary text-base sm:text-lg border-white text-white hover:bg-white hover:text-gray-900 w-full sm:w-auto">
+=======
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <canvas ref="neuralCanvas" class="absolute inset-0 w-full h-full bg-black"></canvas>
+      
+      <div class="relative z-10 container mx-auto px-4 text-center text-white">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
+          Welcome to <span class="gradient-text">Prime Automations</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 text-gray-300 animate-fade-in-delay">
+          Leading the Future of Industrial Automation
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-2">
+          <router-link to="/contact" class="btn-primary text-lg">
+            Get Started
+          </router-link>
+          <router-link to="/products" class="btn-secondary text-lg border-white text-white hover:bg-white hover:text-gray-900">
+>>>>>>> origin/master
             Explore Products
           </router-link>
         </div>
@@ -59,6 +77,7 @@
     <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12" data-aos="fade-up">
+<<<<<<< HEAD
           <!-- <h2 class="text-3xl md:text-4xl font-bold mb-4 text-green-900">Our Commitment</h2>
           <p class="text-gray-700 max-w-2xl mx-auto">We are dedicated to providing exceptional automation solutions with unwavering commitment to quality and innovation.</p> -->
         <!-- Badge -->
@@ -80,19 +99,38 @@
           <div v-for="commitment in commitments" :key="commitment.title" 
                class="gradient-to-br from-green-100 via-green-200 to-emerald-100 p-6 rounded-
                lg shadow-xl card-hover" data-aos="fade-up" :data-aos-delay="commitment.delay">
+=======
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Commitment</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">We are dedicated to providing exceptional automation solutions with unwavering commitment to quality and innovation.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div v-for="commitment in commitments" :key="commitment.title" 
+               class="bg-white p-6 rounded-lg shadow-lg card-hover" data-aos="fade-up" :data-aos-delay="commitment.delay">
+>>>>>>> origin/master
             <div class="w-16 h-16 bg-prime-green rounded-lg flex items-center justify-center mb-4">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path :stroke-linecap="round" :stroke-linejoin="round" stroke-width="2" :d="commitment.icon"></path>
               </svg>
             </div>
+<<<<<<< HEAD
             <h3 class="text-xl font-semibold mb-2 text-green-900">{{ commitment.title }}</h3>
             <p class="text-gray-700">{{ commitment.description }}</p>
+=======
+            <h3 class="text-xl font-semibold mb-2">{{ commitment.title }}</h3>
+            <p class="text-gray-600">{{ commitment.description }}</p>
+>>>>>>> origin/master
           </div>
         </div>
 
         <div class="text-center">
+<<<<<<< HEAD
           <router-link to="/about" class="btn-primary mr-4">Our Story</router-link>
           <router-link to="/contact" class="btn-secondary">Let's Talk</router-link>
+=======
+          <router-link to="/about" class="btn-primary mr-4">View More</router-link>
+          <router-link to="/contact" class="btn-secondary">Contact Us</router-link>
+>>>>>>> origin/master
         </div>
       </div>
     </section>
@@ -101,6 +139,7 @@
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12" data-aos="fade-up">
+<<<<<<< HEAD
           <!-- <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Milestones</h2>
           <p class="text-gray-600 max-w-2xl mx-auto">Numbers that speak volumes about our journey and success.</p> -->
         <!-- Badge -->
@@ -117,6 +156,10 @@
 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
   Numbers that speak volumes about our journey and success
 </p>
+=======
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Milestones</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Numbers that speak volumes about our journey and success.</p>
+>>>>>>> origin/master
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -138,6 +181,7 @@
     <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12" data-aos="fade-up">
+<<<<<<< HEAD
           <!-- <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Products</h2>
           <p class="text-gray-600 max-w-2xl mx-auto">Discover our comprehensive range of automation solutions designed for various industries.</p> -->
        <!-- Badge -->
@@ -180,6 +224,28 @@
   </div>
 </div>
 
+=======
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Products</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Discover our comprehensive range of automation solutions designed for various industries.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div v-for="product in products" :key="product.id" 
+               class="bg-white rounded-lg shadow-lg overflow-hidden card-hover cursor-pointer" 
+               data-aos="fade-up" 
+               :data-aos-delay="product.delay"
+               @click="$router.push('/products')">
+            <img :src="product.image" :alt="product.title" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">{{ product.title }}</h3>
+              <p class="text-gray-600 mb-4">{{ product.description }}</p>
+              <button class="text-prime-green font-semibold hover:text-deep-sea-green transition-colors">
+                Learn More →
+              </button>
+            </div>
+          </div>
+        </div>
+>>>>>>> origin/master
 
         <div class="text-center">
           <router-link to="/contact" class="btn-primary">Request Custom Solutions</router-link>
@@ -191,6 +257,7 @@
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12" data-aos="fade-up">
+<<<<<<< HEAD
           <!-- <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Collaborators</h2>
           <p class="text-gray-600 max-w-2xl mx-auto">Trusted partners who believe in our vision and excellence.</p> -->
        <!-- Badge -->
@@ -207,6 +274,10 @@
 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
   Trusted partners who believe in our vision and excellence
 </p>
+=======
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Collaborators</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Trusted partners who believe in our vision and excellence.</p>
+>>>>>>> origin/master
         </div>
 
         <!-- Infinite Carousel -->
@@ -241,6 +312,7 @@
     <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12" data-aos="fade-up">
+<<<<<<< HEAD
           <!-- <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Events</h2>
           <p class="text-gray-600 max-w-2xl mx-auto">Stay updated with our latest events and industry engagements.</p> -->
         <!-- Badge -->
@@ -259,6 +331,13 @@
         </div>
         
         <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+=======
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Events</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Stay updated with our latest events and industry engagements.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+>>>>>>> origin/master
           <div v-for="event in events" :key="event.id" 
                class="bg-white rounded-lg shadow-lg overflow-hidden card-hover cursor-pointer" 
                data-aos="fade-up" 
@@ -275,6 +354,7 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
         </div> -->
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -306,6 +386,9 @@
   </div>
 </div>
 
+=======
+        </div>
+>>>>>>> origin/master
 
         <div class="text-center">
           <router-link to="/events" class="btn-primary">View All Events</router-link>
@@ -317,6 +400,7 @@
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12" data-aos="fade-up">
+<<<<<<< HEAD
           <!-- <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Blogs</h2>
           <p class="text-gray-600 max-w-2xl mx-auto">Insights, trends, and innovations in the automation industry.</p> -->
        <!-- Badge -->
@@ -336,6 +420,13 @@
         </div>
         
         <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+=======
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Blogs</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Insights, trends, and innovations in the automation industry.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+>>>>>>> origin/master
           <div v-for="blog in blogs" :key="blog.id" 
                class="bg-gray-50 rounded-lg shadow-lg overflow-hidden card-hover" 
                data-aos="fade-up" 
@@ -351,6 +442,7 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
         </div> -->
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -379,6 +471,9 @@
   </div>
 </div>
 
+=======
+        </div>
+>>>>>>> origin/master
 
         <div class="text-center">
           <router-link to="/blogs" class="btn-primary">All Blogs</router-link>
@@ -390,6 +485,7 @@
     <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12" data-aos="fade-up">
+<<<<<<< HEAD
           <!-- <h2 class="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
           <p class="text-gray-600 max-w-2xl mx-auto">Get in touch with us for any inquiries or support.</p> -->
           <!-- Badge -->
@@ -406,6 +502,10 @@
 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
   Get in touch with us for any inquiries or support
 </p>
+=======
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Get in touch with us for any inquiries or support.</p>
+>>>>>>> origin/master
         </div>
         
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
