@@ -930,7 +930,7 @@ const events = [
     title: "DTG - The 19th Dhaka Int'l Textile & Garments Machinery Exhibition",
     description:
       "Join Prime Automations to redefine efficiency at DTG 2025 Expo...",
-    image: "/public/images/events/dhaka-intl-manf-expo-25.webp",
+    image: "/images/events/dhaka-intl-manf-expo-25.webp",
     delay: 0,
     link: "https://dtg.chanchao.com.tw/News/Detail/4955"
   },
@@ -938,7 +938,7 @@ const events = [
     id: 2,
     title: "DTG - The 18th Dhaka Int'l Textile & Garments Machinery Exhibition",
     description: "Experience innovation and automation excellence with Prime Automations Ltd...",
-    image: "/public/images/events/dhaka-intl-manf-expo-24.webp",
+    image: "/images/events/dhaka-intl-manf-expo-24.webp",
     delay: 100,
     link: "https://www.facebook.com/events/256212867497609",
   },
@@ -946,7 +946,7 @@ const events = [
     id: 3,
     title: "Prime Automations | Realist Washing Machineries at Denim Expo",
     description: "Prime Automations presents eco-friendly denim washing at Expo 2023....",
-    image: "/public/images/events/denim-expo-23.webp",
+    image: "/images/events/denim-expo-23.webp",
     delay: 200,
     link: "https://www.facebook.com/events/304086549056088",
   },
