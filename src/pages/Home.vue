@@ -205,15 +205,15 @@
 </h2>
 <!-- Supporting Line -->
 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-  Trusted partners who believe in our vision and excellence
+  Organizations that value excellence choose to grow alongside us
 </p>
         </div>
 
         <!-- Infinite Carousel -->
         <div class="overflow-hidden mb-12">
-          <div class="flex space-x-8 animate-marquee" @mouseenter="pauseCarousel" @mouseleave="resumeCarousel">
+          <div class="flex space-x-8 cursor-pointer animate-marquee" @mouseenter="pauseCarousel" @mouseleave="resumeCarousel">
             <div v-for="partner in [...partners, ...partners]" :key="partner.name" 
-                 class="flex-shrink-0 w-32 h-20 bg-gray-100 rounded-lg flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110">
+                 class="flex-shrink-0 w-32 h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110">
               <img :src="partner.logo" :alt="partner.name" class="max-w-full max-h-full object-contain">
             </div>
           </div>
@@ -649,13 +649,28 @@ const products = [
 ]
 
 // Partners data
+import aeneoiLogo from '@/assets/images/partners/aeneoi-logo.png';
+import audacesLogo from '@/assets/images/partners/audaces-logo.png'
+import beneksLogo from '@/assets/images/partners/beneks-logo.png';
+import bromakLogo from '@/assets/images/partners/bromak-logo.png';
+import entaLogo from '@/assets/images/partners/enta-logo.png';
+import etonLogo from '@/assets/images/partners/eton-logo.png';
+import ozverLogo from '@/assets/images/partners/ozver-logo.png';
+import pluviaLogo from '@/assets/images/partners/pluvia-logo.png';
+import promanageLogo from '@/assets/images/partners/promanage-logo.png';
+import realistLogo from '@/assets/images/partners/realist-logo.png';
+
 const partners = [
-  { name: 'Partner 1', logo: 'https://picsum.photos/seed/partner1/120/60.jpg' },
-  { name: 'Partner 2', logo: 'https://picsum.photos/seed/partner2/120/60.jpg' },
-  { name: 'Partner 3', logo: 'https://picsum.photos/seed/partner3/120/60.jpg' },
-  { name: 'Partner 4', logo: 'https://picsum.photos/seed/partner4/120/60.jpg' },
-  { name: 'Partner 5', logo: 'https://picsum.photos/seed/partner5/120/60.jpg' },
-  { name: 'Partner 6', logo: 'https://picsum.photos/seed/partner6/120/60.jpg' }
+  { name: 'Aeneoi', logo: aeneoiLogo },
+  { name: 'Audaces', logo: audacesLogo },
+  { name: 'Beneks', logo: beneksLogo },
+  { name: 'Bromak', logo: bromakLogo },
+  { name: 'Enta', logo: entaLogo },
+  { name: 'Eton', logo: etonLogo },
+  { name: 'Ozver', logo: ozverLogo },
+  { name: 'Pluvia', logo: pluviaLogo },
+  { name: 'Promanage', logo: promanageLogo },
+  { name: 'Realist', logo: realistLogo },
 ]
 
 // Events data
