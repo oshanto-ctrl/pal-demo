@@ -27,10 +27,10 @@ export const useCounterStore = defineStore('counter', {
     },
     
     startCounters() {
-      this.animateCounter(15, 'years')
-      this.animateCounter(500, 'clients')
-      this.animateCounter(100, 'partners')
-      this.animateCounter(50, 'products')
+      this.animateCounter(25, 'years')
+      this.animateCounter(80, 'clients')
+      this.animateCounter(10, 'partners')
+      this.animateCounter(70, 'products')
     }
   }
 })
