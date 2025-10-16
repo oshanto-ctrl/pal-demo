@@ -1,12 +1,5 @@
 <template>
   <div class="min-h-screen">
-    
-
-
-
-
-
-
 
 <!-- Hero Section -->
 <section class="relative bg-gradient-to-r from-prime-green to-deep-sea-green text-white py-24 md:py-32">
@@ -39,8 +32,6 @@
 </div>
   </div>
 </section>
-
-
 
 <!-- Company Overview with Background Image and Uniform Card Sizes -->
 <section class="relative py-24 bg-cover bg-center overflow-hidden" style="background-image: url('https://picsum.photos/seed/factory/1200/800.jpg');">
