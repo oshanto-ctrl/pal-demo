@@ -35,7 +35,12 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: () => import('@/pages/Contact.vue')
-  }
+  },
+  {
+    path: '/privacy-policy',
+    name: 'PrivacyPolicy',
+    component: () => import('@/pages/PrivacyPolicy.vue')
+  },
 ]
 
 const router = createRouter({
