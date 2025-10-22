@@ -1039,15 +1039,17 @@ const contactInfo = [
   },
 ];
 
-// Neural Network Animation
+// Enhanced Neural Network Animation with triangular mesh formations
 class NeuralNetwork {
   constructor(canvas) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
     this.nodes = [];
     this.connections = [];
+    this.triangles = []; // New: Store triangular connections
     this.mouseX = 0;
     this.mouseY = 0;
+    this.animationTime = 0; // New: For pulsing animations
     this.init();
   }
 
@@ -1055,6 +1057,7 @@ class NeuralNetwork {
     this.resize();
     this.createNodes();
     this.createConnections();
+    this.createTriangles(); // New: Create triangular formations
     this.animate();
 
     window.addEventListener("resize", () => this.resize());
@@ -1070,48 +1073,143 @@ class NeuralNetwork {
   }
 
   createNodes() {
+    // Increased node density for a richer network
     const nodeCount = Math.floor(
-      (this.canvas.width * this.canvas.height) / 15000
+      (this.canvas.width * this.canvas.height) / 8000
     );
+    
     for (let i = 0; i < nodeCount; i++) {
       this.nodes.push({
         x: Math.random() * this.canvas.width,
         y: Math.random() * this.canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 0.7, // Slightly faster movement
+        vy: (Math.random() - 0.5) * 0.7,
+        radius: Math.random() * 2.5 + 1.5, // Slightly larger nodes
+        pulsePhase: Math.random() * Math.PI * 2, // For pulsing effect
       });
     }
   }
 
   createConnections() {
+    // Create connections between nearby nodes
     for (let i = 0; i < this.nodes.length; i++) {
       for (let j = i + 1; j < this.nodes.length; j++) {
         const dx = this.nodes[i].x - this.nodes[j].x;
         const dy = this.nodes[i].y - this.nodes[j].y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < 150) {
+        // Increased connection distance for more connections
+        if (distance < 200) {
           this.connections.push({
             node1: this.nodes[i],
             node2: this.nodes[j],
-            distance: distance,
+            maxDistance: 200, // Store max distance for animation
           });
         }
       }
     }
   }
 
+  // New method to create triangular formations
+  createTriangles() {
+    // Find nodes that can form triangles
+    for (let i = 0; i < this.nodes.length; i++) {
+      for (let j = i + 1; j < this.nodes.length; j++) {
+        const dx1 = this.nodes[i].x - this.nodes[j].x;
+        const dy1 = this.nodes[i].y - this.nodes[j].y;
+        const distance1 = Math.sqrt(dx1 * dx1 + dy1 * dy1);
+        
+        if (distance1 < 180) {
+          for (let k = j + 1; k < this.nodes.length; k++) {
+            const dx2 = this.nodes[i].x - this.nodes[k].x;
+            const dy2 = this.nodes[i].y - this.nodes[k].y;
+            const distance2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+            
+            const dx3 = this.nodes[j].x - this.nodes[k].x;
+            const dy3 = this.nodes[j].y - this.nodes[k].y;
+            const distance3 = Math.sqrt(dx3 * dx3 + dy3 * dy3);
+            
+            // If all three nodes are close enough, form a triangle
+            if (distance2 < 180 && distance3 < 180) {
+              this.triangles.push({
+                node1: this.nodes[i],
+                node2: this.nodes[j],
+                node3: this.nodes[k],
+                maxDistance: 180,
+              });
+            }
+          }
+        }
+      }
+    }
+  }
+
   animate() {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    // Clear canvas with a dark turquoise background
+    this.ctx.fillStyle = "#0d3b47";
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    // Increment animation time for effects
+    this.animationTime += 0.01;
 
     // Update nodes
     this.nodes.forEach((node) => {
       node.x += node.vx;
       node.y += node.vy;
 
+      // Bounce off edges
       if (node.x < 0 || node.x > this.canvas.width) node.vx *= -1;
       if (node.y < 0 || node.y > this.canvas.height) node.vy *= -1;
+      
+      // Update pulse phase
+      node.pulsePhase += 0.02;
+    });
+
+    // Draw triangular connections first (background layer)
+    this.triangles.forEach((triangle) => {
+      const dx1 = triangle.node1.x - triangle.node2.x;
+      const dy1 = triangle.node1.y - triangle.node2.y;
+      const distance1 = Math.sqrt(dx1 * dx1 + dy1 * dy1);
+      
+      const dx2 = triangle.node2.x - triangle.node3.x;
+      const dy2 = triangle.node2.y - triangle.node3.y;
+      const distance2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+      
+      const dx3 = triangle.node3.x - triangle.node1.x;
+      const dy3 = triangle.node3.y - triangle.node1.y;
+      const distance3 = Math.sqrt(dx3 * dx3 + dy3 * dy3);
+      
+      // Only draw if all sides are within max distance
+      if (distance1 < triangle.maxDistance && 
+          distance2 < triangle.maxDistance && 
+          distance3 < triangle.maxDistance) {
+        
+        // Calculate average distance for opacity
+        const avgDistance = (distance1 + distance2 + distance3) / 3;
+        const opacity = Math.max(0, 1 - avgDistance / triangle.maxDistance);
+        
+        // Pulsing effect
+        const pulse = (Math.sin(this.animationTime * 2) + 1) / 2;
+        
+        // Draw semi-transparent triangle
+        this.ctx.fillStyle = `rgba(16, 185, 129, ${opacity * 0.1 * pulse})`;
+        this.ctx.beginPath();
+        this.ctx.moveTo(triangle.node1.x, triangle.node1.y);
+        this.ctx.lineTo(triangle.node2.x, triangle.node2.y);
+        this.ctx.lineTo(triangle.node3.x, triangle.node3.y);
+        this.ctx.closePath();
+        this.ctx.fill();
+        
+        // Draw triangle edges
+        this.ctx.strokeStyle = `rgba(16, 185, 129, ${opacity * 0.3 * pulse})`;
+        this.ctx.lineWidth = 1;
+        this.ctx.beginPath();
+        this.ctx.moveTo(triangle.node1.x, triangle.node1.y);
+        this.ctx.lineTo(triangle.node2.x, triangle.node2.y);
+        this.ctx.lineTo(triangle.node3.x, triangle.node3.y);
+        this.ctx.closePath();
+        this.ctx.stroke();
+      }
     });
 
     // Draw connections
@@ -1120,10 +1218,31 @@ class NeuralNetwork {
       const dy = connection.node1.y - connection.node2.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance < 150) {
-        const opacity = 1 - distance / 150;
-        this.ctx.strokeStyle = `rgba(16, 185, 129, ${opacity * 0.5})`;
-        this.ctx.lineWidth = 1;
+      if (distance < connection.maxDistance) {
+        // Calculate opacity based on distance
+        const opacity = 1 - distance / connection.maxDistance;
+        
+        // Pulsing effect for connections
+        const pulse = (Math.sin(this.animationTime * 3 + distance * 0.01) + 1) / 2;
+        
+        // Draw connection with gradient
+        const gradient = this.ctx.createLinearGradient(
+          connection.node1.x, connection.node1.y,
+          connection.node2.x, connection.node2.y
+        );
+        gradient.addColorStop(0, `rgba(16, 185, 129, ${opacity * 0.7 * pulse})`);
+        gradient.addColorStop(1, `rgba(52, 211, 153, ${opacity * 0.3 * pulse})`);
+        
+        this.ctx.strokeStyle = gradient;
+        this.ctx.lineWidth = 1.5;
+        this.ctx.beginPath();
+        this.ctx.moveTo(connection.node1.x, connection.node1.y);
+        this.ctx.lineTo(connection.node2.x, connection.node2.y);
+        this.ctx.stroke();
+        
+        // Add glow effect to connections
+        this.ctx.strokeStyle = `rgba(134, 239, 172, ${opacity * 0.2 * pulse})`;
+        this.ctx.lineWidth = 3;
         this.ctx.beginPath();
         this.ctx.moveTo(connection.node1.x, connection.node1.y);
         this.ctx.lineTo(connection.node2.x, connection.node2.y);
@@ -1131,32 +1250,41 @@ class NeuralNetwork {
       }
     });
 
-    // Draw nodes
+    // Draw nodes on top
     this.nodes.forEach((node) => {
       const mouseDistance = Math.sqrt(
         Math.pow(node.x - this.mouseX, 2) + Math.pow(node.y - this.mouseY, 2)
       );
 
-      const scale = mouseDistance < 100 ? 1 + (100 - mouseDistance) / 100 : 1;
+      // Mouse interaction effect
+      const scale = mouseDistance < 150 ? 1 + (150 - mouseDistance) / 150 : 1;
+      
+      // Pulsing effect for nodes
+      const pulse = (Math.sin(node.pulsePhase) + 1) / 2;
+      const pulseSize = 0.8 + pulse * 0.4;
 
+      // Draw node glow
+      this.ctx.fillStyle = `rgba(16, 185, 129, ${0.2 * pulse})`;
+      this.ctx.beginPath();
+      this.ctx.arc(node.x, node.y, node.radius * scale * pulseSize * 4, 0, Math.PI * 2);
+      this.ctx.fill();
+
+      // Draw node
       this.ctx.fillStyle = "#10b981";
       this.ctx.beginPath();
-      this.ctx.arc(node.x, node.y, node.radius * scale, 0, Math.PI * 2);
+      this.ctx.arc(node.x, node.y, node.radius * scale * pulseSize, 0, Math.PI * 2);
       this.ctx.fill();
-
-      // Glow effect
-      this.ctx.shadowColor = "#10b981";
-      this.ctx.shadowBlur = 10;
+      
+      // Draw inner highlight
+      this.ctx.fillStyle = "#d1fae5";
       this.ctx.beginPath();
-      this.ctx.arc(node.x, node.y, node.radius * scale * 0.5, 0, Math.PI * 2);
+      this.ctx.arc(node.x, node.y, node.radius * scale * pulseSize * 0.3, 0, Math.PI * 2);
       this.ctx.fill();
-      this.ctx.shadowBlur = 0;
     });
 
-    animationId = requestAnimationFrame(() => this.animate());
+    requestAnimationFrame(() => this.animate());
   }
-}
-
+} // Neural Canvas Class Ends
 // Carousel control
 let carouselPaused = false;
 
