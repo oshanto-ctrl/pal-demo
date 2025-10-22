@@ -27,7 +27,7 @@
             <span
               class="text-xs sm:text-sm font-bold text-deep-sea-green uppercase tracking-wider flex items-center"
             >
-              <i class="fas fa-award mr-2"></i>Industry Leader Since 2010
+              <i class="fas fa-award mr-2"></i>Industry Leader Since 2019
             </span>
           </div>
         </div>
@@ -63,7 +63,7 @@
           >
           <span
             class="text-2xl md:text-3xl lg:text-4xl font-bold text-green-400"
-            >80+</span
+            >200+</span
           >
           <span
             class="text-base sm:text-lg md:text-xl text-gray-200 font-medium"
@@ -265,13 +265,21 @@
             class="bg-white rounded-lg shadow-xl overflow-hidden card-hover cursor-pointer flex flex-col"
             data-aos="fade-up"
             :data-aos-delay="product.delay"
-            @click="$router.push('/products')"
           >
+          <!-- 
+          Previous Approach:
+          #previous: When @click push them to /product page with
+          @click="$router.push('/products')"
+
+          #current: Now each product card has its own link in the products array
+          
+          #Updated: Each product has different pages with flipbooks.
+          -->
             <!-- Image -->
             <img
               :src="product.image"
               :alt="product.title"
-              class="w-full h-48 object-cover"
+              class="w-full h-48 object-contain"
             />
 
             <!-- Card Content -->
@@ -282,20 +290,22 @@
               <p class="text-gray-600 mb-4 flex-1">{{ product.description }}</p>
 
               <!-- Button pinned at bottom -->
-              <button
-                class="text-prime-green font-semibold hover:text-deep-sea-green transform transition-transform duration-200 ease-in-out mt-auto hover:scale-110"
+              <a
+                :href="product.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-prime-green font-semibold hover:text-deep-sea-green transform transition-transform duration-200 ease-in-out mt-auto hover:scale-105"
               >
                 Explore Product →
-              </button>
+              </a>
             </div>
           </div>
         </div>
 
         <div class="text-center">
-          <router-link to="/contact" class="btn-primary"
-            >Request Custom Solutions</router-link
-          >
-        </div>
+          <router-link to="/products" class="btn-primary"
+           >Discover Our Products</router-link
+          >        </div>
       </div>
     </section>
 
@@ -801,10 +811,10 @@ const commitments = [
     delay: 400,
   },
   {
-    title: "Eco-Friendly",
+    title: "Sustainability",
     description:
-      "Sustainable solutions that minimize environmental impact and reduce energy consumption.",
-    icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
+      "Eco-conscious automation for a greener, future-ready industry.",
+    icon: "M12 2a10 10 0 100 20 10 10 0 000-20zm0 4v8l6 3",
     delay: 500,
   },
 ];
@@ -837,71 +847,99 @@ const milestones = [
 const products = [
   {
     id: 1,
-    title: "Industrial PLC Systems",
+    title: "AUDACES",
     description:
-      "Advanced programmable logic controllers for complex industrial automation.",
-    image: "https://picsum.photos/seed/plc/400/300.jpg",
+      "Technology for fashion producttion and Industry 4.0 in apparel.",
+    image: audacesLogo,
+    url: "https://audaces.com/en",
     delay: 0,
   },
   {
     id: 2,
-    title: "SCADA Solutions",
+    title: "ETON SYSTEMS",
     description:
-      "Comprehensive supervisory control and data acquisition systems.",
-    image: "https://picsum.photos/seed/scada/400/300.jpg",
+      "Flexible overhead conveyor systems to automate production logistics.",
+    image: etonLogo,
+    url: "http://etonsystems.com/",
     delay: 100,
+    
   },
   {
     id: 3,
-    title: "Robotics Integration",
+    title: "GBOS LASER INC.",
     description:
-      "Custom robotic solutions for manufacturing and assembly lines.",
-    image: "https://picsum.photos/seed/robotics/400/300.jpg",
+      "Smart laser-cutting automation for manufacturing industries.",
+    image: gbosLogo,
+    url: "https://www.gboslaser.com/",
     delay: 200,
   },
   {
     id: 4,
-    title: "HMI Interfaces",
-    description: "Intuitive human-machine interfaces for seamless operation.",
-    image: "https://picsum.photos/seed/hmi/400/300.jpg",
+    title: "REALIST",
+    description: "Precision textile textile-machinery for efficient finishing processes.",
+    image: realistLogo,
+    url: "https://realistmakina.com/",
     delay: 300,
   },
   {
     id: 5,
-    title: "Motion Control",
+    title: "Bromak",
     description:
-      "Precision motion control systems for high-accuracy applications.",
-    image: "https://picsum.photos/seed/motion/400/300.jpg",
+      "Fabric quality-control & packaging machines for textile industries.",
+    image: bromakLogo,
+    url: "https://bromak.com.tr/",
     delay: 400,
   },
   {
     id: 6,
-    title: "Safety Systems",
-    description: "Comprehensive safety solutions for industrial environments.",
-    image: "https://picsum.photos/seed/safety/400/300.jpg",
+    title: "OZVER",
+    description: "Turkish high-precision textile finishing machinery manufacturer.",
+    image: ozverLogo,
+    url: "https://www.ozver.com/",
     delay: 500,
   },
   {
     id: 7,
-    title: "Network Solutions",
+    title: "PLUVIA",
     description:
-      "Industrial networking infrastructure for reliable communication.",
-    image: "https://picsum.photos/seed/network/400/300.jpg",
+      "Energy-efficeient continuous washing machines for textile finishing.",
+    image: pluviaLogo,
+    url: "https://www.pluviatr.com/Agents",
     delay: 600,
   },
   {
     id: 8,
-    title: "Energy Management",
-    description: "Smart energy management systems for optimized consumption.",
-    image: "https://picsum.photos/seed/energy/400/300.jpg",
+    title: "Enta",
+    description: "Sustainable water-management solutions for textile industries.",
+    image: entaLogo,
+    url: "https://www.enta.com.tr/",
     delay: 700,
   },
+   {
+    id: 9,
+    title: "AENERGI SISTEMLERI",
+    description:
+      "AI-driven predictive maintenance solutions for industrial machinery.",
+    image: aeneoiLogo,
+    url: "https://www.aenerjisistemleri.com/",
+    delay: 800,
+  },
+  {
+    id: 10,
+    title: "Promanage",
+    description:
+      "Comprehensive ERP solutions tailored for textile and apparel industries.",
+    image: promanageLogo,
+    url: "https://promanage.com/",
+    delay: 900,
+  },
+ 
 ];
 
 // Partners data
 import aeneoiLogo from "@/assets/images/partners/aeneoi-logo.png";
 import audacesLogo from "@/assets/images/partners/audaces-logo.png";
-import beneksLogo from "@/assets/images/partners/beneks-logo.png";
+// import beneksLogo from "@/assets/images/partners/beneks-logo.png";
 import bromakLogo from "@/assets/images/partners/bromak-logo.png";
 import entaLogo from "@/assets/images/partners/enta-logo.png";
 import etonLogo from "@/assets/images/partners/eton-logo.png";
@@ -909,11 +947,12 @@ import ozverLogo from "@/assets/images/partners/ozver-logo.png";
 import pluviaLogo from "@/assets/images/partners/pluvia-logo.png";
 import promanageLogo from "@/assets/images/partners/promanage-logo.png";
 import realistLogo from "@/assets/images/partners/realist-logo.png";
+import gbosLogo from "@/assets/images/partners/gbos-logo.png";
 
 const partners = [
   { name: "Aeneoi", logo: aeneoiLogo },
   { name: "Audaces", logo: audacesLogo },
-  { name: "Beneks", logo: beneksLogo },
+  // { name: "Beneks", logo: beneksLogo },
   { name: "Bromak", logo: bromakLogo },
   { name: "Enta", logo: entaLogo },
   { name: "Eton", logo: etonLogo },
@@ -921,6 +960,7 @@ const partners = [
   { name: "Pluvia", logo: pluviaLogo },
   { name: "Promanage", logo: promanageLogo },
   { name: "Realist", logo: realistLogo },
+  { name: "GBOS", logo: gbosLogo },
 ];
 
 // Events data

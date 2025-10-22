@@ -97,7 +97,7 @@
         <div class="flex flex-col md:flex-row justify-between items-center">
           <p class="text-gray-400 text-sm">© {{ currentYear }} Prime Automations Limited. All rights reserved.</p>
           <div class="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" class="text-gray-400 hover:text-prime-green text-sm transition-colors duration-300">Privacy Policy</a>
+            <router-link to="/privacy-policy" class="text-gray-400 hover:text-prime-green text-sm transition-colors duration-300">Privacy Policy</router-link>
             <a href="#" class="text-gray-400 hover:text-prime-green text-sm transition-colors duration-300">Terms of Service</a>
           </div>
         </div>
