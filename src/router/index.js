@@ -64,42 +64,25 @@ const routes = [
     name: 'Realist'
    },
    {
-    // Realist: Washing
-    path: '/products/realist/washing',
-    component: () => import('@/pages/products/realist/Washing.vue'),
-    name: 'RealistWashing'
-   },
-   {
     // Realist: Ozone
     path: '/products/realist/ozone',
     component: () => import('@/pages/products/realist/Ozone.vue'),
     name: 'RealistOzone'
    },
    {
-    // Realist: Drying
-    path: '/products/realist/drying',
-    component: () => import('@/pages/products/realist/Drying.vue'),
-    name: 'RealistDrying'
-   },
-   {
-    // Realist: Dyeing
-    path: '/products/realist/dyeing',
-    component: () => import('@/pages/products/realist/Dyeing.vue'),
-    name: 'RealistDyeing'
-   },
-   {
-    // Realist: Hydropress
-    path: '/products/realist/hydropress',
-    component: () => import('@/pages/products/realist/Hydropress.vue'),
-    name: 'RealistHydropress'
-   },
-   {
-    // Realist: Centrifuge
-    path: '/products/realist/centrifuge',
-    component: () => import('@/pages/products/realist/Centrifuge.vue'),
-    name: 'RealistCentrifuge'
-   },
+    // Realist: Ozone-RMO
+    path: '/products/realist/ozone/rmo',
+    component: () => import('@/pages/products/realist/ozone/Rmo.vue'),
+    name: 'RealistOzoneRmo'
 
+   },
+   {
+    // Realist: Ozone-ROG-OZONE
+    path: '/products/realist/ozone/rog-ozone',
+    component: () => import('@/pages/products/realist/ozone/RogOzone.vue'),
+    name: 'RealistOzoneRogOzone'
+   },
+   
    // Upcoming product pages and sub-categories goes from here.
    
 
