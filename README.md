@@ -46,7 +46,7 @@ This project follows a standard directory structure to keep files organized and 
                     ├── ROGOZONE.vue
 
 
-│   ├── public/
+├── public/
         ├── images/
             ├── events/
             ├── products/
@@ -56,9 +56,9 @@ This project follows a standard directory structure to keep files organized and 
                     .   
                     .
                 ├── product-n/
-│   ├── routers/
+├── routers/
         ├── index.js
-    ├── stores/
+├── stores/
         ├── counter.js
 
 ├── App.vue
