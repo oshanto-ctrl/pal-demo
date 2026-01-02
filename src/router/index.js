@@ -66,7 +66,7 @@ const routes = [
    {
     // Realist: Ozone
     path: '/products/realist/ozone',
-    component: () => import('@/pages/products/realist/Ozone.vue'),
+    component: () => import('@/pages/products/realist/ozone.vue'),
     name: 'RealistOzone'
    },
    {
