@@ -78,8 +78,8 @@ const routes = [
    },
    {
     // Realist: Ozone-ROG-OZONE
-    path: '/products/realist/ozone/rog-ozone',
-    component: () => import('@/pages/products/realist/ozone/RogOzone.vue'),
+    path: '/products/realist/ozone/rogozone',
+    component: () => import('@/pages/products/realist/ozone/rogozone.vue'),
     name: 'RealistOzoneRogOzone'
    },
    
