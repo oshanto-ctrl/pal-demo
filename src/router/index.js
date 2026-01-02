@@ -72,7 +72,7 @@ const routes = [
    {
     // Realist: Ozone-RMO
     path: '/products/realist/ozone/rmo',
-    component: () => import('@/pages/products/realist/ozone/Rmo.vue'),
+    component: () => import('@/pages/products/realist/ozone/rmo.vue'),
     name: 'RealistOzoneRmo'
 
    },
