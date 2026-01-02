@@ -2,6 +2,8 @@
 # Prime Automation Limited
 
 
+
+
 ## 🔗 Project Live Link
 https://pal-demo-tau.vercel.app/
 
@@ -10,6 +12,7 @@ https://pal-demo-tau.vercel.app/
 ## Tech Stack
 
  Vuejs 3 (Composition API), Vite, TailwindCSS
+
 
 
 
@@ -46,7 +49,7 @@ This project follows a standard directory structure to keep files organized and 
                     ├── ROGOZONE.vue
 
 
-├── public/
+│   ├── public/
         ├── images/
             ├── events/
             ├── products/
@@ -56,9 +59,9 @@ This project follows a standard directory structure to keep files organized and 
                     .   
                     .
                 ├── product-n/
-├── routers/
+│   ├── routers/
         ├── index.js
-├── stores/
+    ├── stores/
         ├── counter.js
 
 ├── App.vue
